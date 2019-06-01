@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        .wrapper1{
+            width:500px;
+            height:100px;
+            background-color: black;
+            margin-bottom:20px;
+            text-align: center;
+        }
+        .inner1{
+            background-color: red;
+        }
+        .wrapper3{
+            width:500px;
+            height:100px;
+            background-color: black;
+            margin-bottom:20px;
+           
+        }
+        .inner3{
+            width:100px;
+            height: 50px;
+            background-color: gray;
+            margin: 0 auto;
+        }
+        .wrapper4{
+            width:500px;
+            height:100px;
+            background-color: black;
+            margin-bottom:20px;
+            display:flex;
+            flex-direction: column;
+        }
+        .inner4{
+            width:100px;
+            height: 50px;
+            background-color: red;
+           align-self: center;
+
+        }
+        </style>
+</head>
+<body>
+    <div class="wrapper1">
+        <span class="inner1">
+            行内元素水平居中text-align
+        </span>
+    </div>
+    <div class="wrapper3">
+            <div class="inner3">
+              块级水平居中margin:0 auto 且子元素一定要设置宽度
+            </div>
+        </div>
+        <div class="wrapper4">
+                <div class="inner4">
+                  块级水平居中display:flex;
+                </div>
+            </div>
+</body>
+</html>

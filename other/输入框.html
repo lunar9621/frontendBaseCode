@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+
+        #input{
+            width: 100%;
+        }
+        #match{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            width: 100%;
+            border: 1px solid #ccc;
+            list-style-type: none;
+        }
+        li.active {
+            background: #ccc ;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <input id="input" type="text"/>
+    <ul id="match"></ul>
+</div>
+
+</body>
+<script>
+    var arr = ['aaa', 'bbb', 'ccc','ddd', 'abac'] ;
+    var input = document.getElementById('input') ;
+    var focusIndex = -1 ;
+    input.onkeyup = function(e){
+        var match = document.getElementById('match') ;
+        var target = e.target || e.srcElement ;
+        var lis = match.getElementsByTagName('li') ;
+        if(e.keyCode == 40){
+            console.log("before",focusIndex);
+            if(lis[focusIndex]){
+                lis[focusIndex].className='';
+            }
+            lis[(focusIndex+1)%lis.length].className='active';
+            focusIndex=(focusIndex+1)%lis.length;
+            console.log("after",focusIndex);
+        }else if(e.keyCode == 38){
+            console.log("before",focusIndex);
+            if(lis[focusIndex]){
+                lis[focusIndex].className='';
+            }
+            focusIndex=(focusIndex==-1||focusIndex==0)?lis.length:focusIndex;
+            console.log("middle",focusIndex);
+            lis[(focusIndex-1)%lis.length].className='active';
+            focusIndex=(focusIndex-1)%lis.length;
+            console.log("after",focusIndex);
+        } else if(e.keyCode == 13){
+            if(lis[focusIndex]){
+                console.log(lis[focusIndex].innerHTML);
+          input.value=lis[focusIndex].innerHTML;
+          match.style.display="none";
+            }
+        } else {
+            var reg=new RegExp(input.value,'g');
+            var str='';
+            for(var i=0;i<arr.length;i++){
+                if(reg.test(arr[i])){
+                 str+='<li>'+arr[i]+'</li>';
+                }
+            }
+            match.innerHTML=str;
+            match.style.display="block";
+        }
+    }
+
+</script>
+</html>

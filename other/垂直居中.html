@@ -1,0 +1,89 @@
+ <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        .wrapper1{
+            width:200px;
+            height:100px;
+            background-color: black;
+            display:table-cell;
+            vertical-align: middle;
+          border:1px solid yellow;
+        }
+        .inner1{
+            background-color: red;
+        }
+        .wrapper2{
+            width:200px;
+            height:100px;
+            background-color: black;
+            margin-bottom:20px;
+        }
+        .inner2{
+            background-color: red;
+            line-height:100px;
+        }
+        .wrapper3{
+            width:200px;
+            height:100px;
+            background-color: black;
+            margin-bottom:20px;
+            display:table;
+        }
+        .inner3{
+            width:100px;
+            height: 50px;
+            /* 在table显式设置宽度的情况下，无论内部的table-cell是否设置宽度，宽度是否大于table的宽度，
+            table-row和table-cell的实际宽度都等于table的宽度 */
+            background-color: red;
+            display:table-cell;
+            vertical-align: middle
+        }
+        .wrapper4{
+            width:200px;
+            height:100px;
+            background-color: black;
+            margin-bottom:20px;
+            position: relative;
+        }
+        .inner4{
+            position:absolute;
+            top:50%;
+            transform:translateY(-50%);
+            width:100px;
+            height: 50px;
+            background-color: red;
+        }
+        </style>
+</head>
+<body>
+    <div class="wrapper1">
+        <span class="inner1">
+            行内元素垂直居中vertical-align和table-cell
+        </span>
+    </div>
+    <div class="wrapper2">
+            <span class="inner2">
+            行内垂直居中line-height;
+            </span>
+        </div>
+    <div class="wrapper3">
+            <div class="inner3">
+              块级垂直居中table
+            </div>
+        </div>
+        <div class="wrapper4">
+                <div class="inner4">
+                    块级垂直居中transform
+                </div>
+            </div>
+</body>
+</html>

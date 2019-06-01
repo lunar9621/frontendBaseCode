@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF-8">
+    <title>使用window.requestAnimationFrame制作动画</title>
+    <style type="text/css">
+        .m-test{width: 100px;height: 100px;background-color: red;position: absolute;}
+    </style>
+</head>
+ 
+<body>
+    <div class="m-test" id="m-test"></div>
+    <script type="text/javascript">
+    var start = null;
+    var element = document.getElementById('m-test');
+ 
+    function step(timestamp) {//window.requestAnimationFrame() 方法告诉浏览器您希望执行动画并请求浏览器在下一次重绘之前调用指定的函数来更新动画
+// 该方法使用一个回调函数作为参数，这个回调函数会在浏览器重绘之前调用。
+// 回调函数会被传入一个参数，DOMHighResTimeStamp，指示requestAnimationFrame() 开始触发回调函数的当前时间
+       var progress=timestamp-start;
+       element.style.left=Math.min(progress/10,200)+"px";
+       if(progress<2000){
+       window.requestAnimationFrame(step);
+       }
+    }
+ 
+    window.requestAnimationFrame(step);
+    </script>
+</body>
+ 
+</html>
