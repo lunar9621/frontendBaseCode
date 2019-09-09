@@ -19,7 +19,9 @@ Promise.all=arr=>{
 
 Promise.done=function(onFulliled,onRejected){
     this.then(onFulliled,onRejected).
-    catch(function(reason){setTimeout(()=>{throw reason},0)})
+    catch(function(reason){
+        setTimeout(()=>{throw reason},0)
+    })
 
 }
 

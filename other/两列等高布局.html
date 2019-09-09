@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>两列等高布局</title>
+    <style>
+     body{padding:0;margin:0;color:#f00;}
+     .container{
+         margin:0 auto;
+         width:600px;
+         border:3px solid #00C;
+         overflow:hidden;
+     }
+     .left{
+         float:left;
+         width:150px;
+         background:#B0B0B0;
+         padding-bottom:2000px;
+         margin-bottom:-2000px;
+     }
+     .right{
+         float:left;
+         width:450px;
+         background:#6CC;
+         padding-bottom:2000px;
+         margin-bottom:-2000px;
+     }
+     .parent2{
+        position:relative
+        }
+        .center2{
+        box-sizing:border-box;
+        padding:0 20px;
+        background-clip:content-box;
+        border-left:210px solid lightblue;
+        border-right:310px solid lightgreen;
+        }
+        .left2{
+        position:absolute;
+        top:0;
+        left:0;
+        width:200px;
+        }
+        .right2{
+        position:absolute;
+        top:0;
+        right:0;
+        width:300px;
+    }
+
+    .parent3{
+    display:table;
+    width:100%;
+    table-layout:fixed;
+    }
+    .left3, .centerWrap3, .right3{
+    display:table-cell;
+    }
+    .center3{
+    margin:0,20px;
+    }
+
+    .parent4{
+    position:relative;
+    height:40px;
+    margin-top:20px;
+    }
+    .left4, .center4, .right4{
+    position:absolute;
+    top:0;
+    bottom:0;
+    }
+    .left4{
+    left:0;
+    width:100px;
+    }
+    .center4{
+    left:120px;
+    }
+    .right4{
+    left:720px;
+    }
+    </style>
+  </head>
+  <body>
+   <div class="container">
+      <div class="left">我是left</div>
+      <div class="right">我是right<br><br><br>现在我的高度比left高，所以left下面出现了脱节的现象,padding和margin</div>
+      <div style="clear:both"></div>
+    </div>
+    <div class='parent2' style='background-color:lightgrey'>
+        <div class='left2'>
+        <p>left</p >
+        </div>
+        <div class='center2' style='background-color:pink'>
+        <p>用中间元素的border实现等高</p>
+        <p>center</p >
+        </div>
+        <div class='right2'>
+        <p>right</p >
+        </div>
+        </div>
+        <div class='parent3' style='background-color:lightgrey'>
+                <div class='left3' style='background-color:lightblue'>
+                <p>left</p >
+                </div>
+                <div class='centerWrap3'>
+                <div class='center3' style='background-color:pink'>
+                <p>table元素中的table-cell默认等高，用此来实现</p >
+                <p>center</p >
+                </div>
+                </div>
+                <div class='right3' style='background-color:lightgreen'>
+                <p>right</p >
+                </div>
+        </div>
+        <div class='parent4' style='background-color:lightgrey'>
+                <div class='left4' style='background-color:lightblue'>
+                <p>left4</p >
+                </div>
+                <div class='center4' style='background-color:pink'>
+                <p>设置子元素的top:0;bottom:0;使得所有子元素的高度都和父元素的高度相同</p >
+                </div>
+                <div class='right4' style='background-color:lightgreen'>
+                <p>right4</p >
+                </div>
+        </div>
+  </body>
+</html>
